@@ -16,6 +16,9 @@ module.exports = {
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      lang: 'ja'
+    },
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
     meta: [
@@ -40,7 +43,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/composition-api'],
   /*
    ** Nuxt.js dev-modules
    */
