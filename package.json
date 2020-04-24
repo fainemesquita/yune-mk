@@ -1,7 +1,7 @@
 {
   "name": "yune-mk",
   "version": "1.0.0",
-  "description": "My delightful Nuxt.js project",
+  "description": "yune-mk blog",
   "author": "MK-Yune",
   "private": true,
   "scripts": {
