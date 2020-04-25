@@ -1,5 +1,8 @@
 <template>
-  <v-sheet class="mx-2">
+  <v-sheet
+    class="mx-2 mx-md-auto"
+    :max-width="$vuetify.breakpoint.thresholds.xs + 100"
+  >
     <v-sheet>
       <h2 class="mt-2 mb-0">{{ article.fields.title }}</h2>
       <div class="caption" v-text="datetime" />

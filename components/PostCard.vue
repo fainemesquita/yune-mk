@@ -1,16 +1,15 @@
 <template>
-  <v-card
+  <router-link
     :to="{
       name: 'blog-slug',
       params: { slug }
     }"
-    outlined
-    tile
+    tag="section"
   >
     <v-card-title class="font-weight-bold" v-text="title" />
     <v-card-subtitle class="caption" v-text="localeDate" />
     <v-card-text v-text="description" />
-  </v-card>
+  </router-link>
 </template>
 
 <script lang="ts">
