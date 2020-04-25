@@ -2,7 +2,7 @@
   <v-sheet class="mx-2">
     <v-sheet>
       <h2 class="mt-2 mb-0">{{ article.fields.title }}</h2>
-      <v-subheader class="pa-0">{{ article.sys.updatedAt }}</v-subheader>
+      <div class="caption" v-text="datetime" />
       <v-divider class="py-3"></v-divider>
     </v-sheet>
     <vue-markdown>{{ article.fields.body }}</vue-markdown>
@@ -11,7 +11,8 @@
 
 <script>
 import VueMarkdown from 'vue-markdown'
-import { createClient } from '~/plugins/contentful.js'
+import { dateTimeFormatter } from '~/assets/util'
+import { createClient } from '~/plugins/contentful'
 
 const client = createClient()
 export default {
@@ -28,6 +29,20 @@ export default {
         }
       })
       .catch(console.error)
+  },
+  computed: {
+    updatedAt() {
+      return dateTimeFormatter(this.article.sys.updatedAt)
+    },
+    createdAt() {
+      return dateTimeFormatter(this.article.sys.createdAt)
+    },
+    datetime() {
+      if (this.updatedAt === this.createdAt) {
+        return this.createdAt
+      }
+      return `${this.updatedAt} | Originally created at: ${this.createdAt}`
+    }
   },
   head() {
     return {
