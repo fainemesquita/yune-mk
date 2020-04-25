@@ -1,9 +1,10 @@
 <template>
   <section>
-    <card
+    <Post-Card
       v-for="post in posts"
       :key="post.sys.slug"
       :title="post.fields.title"
+      :description="post.fields.description"
       :date="post.sys.updatedAt"
       :slug="post.fields.slug"
     />
@@ -11,13 +12,13 @@
 </template>
 
 <script>
-import Card from '~/components/Card.vue'
+import PostCard from '~/components/PostCard.vue'
 import { createClient } from '~/plugins/contentful.js'
 
 const client = createClient()
 export default {
   components: {
-    Card
+    PostCard
   },
   asyncData({ env }) {
     return client

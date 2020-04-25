@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app hide-on-scroll>
+    <v-app-bar app hide-on-scroll color="light-blue accent-1" flat>
       <v-toolbar-title>
         <nuxt-link to="/" tag="span">Yune MK</nuxt-link>
       </v-toolbar-title>
@@ -19,9 +19,7 @@
     </v-app-bar>
 
     <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
   </v-app>
 </template>

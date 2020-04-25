@@ -1,18 +1,16 @@
 <template>
-  <nuxt-link
+  <v-card
     :to="{
       name: 'blog-slug',
-      params: {
-        slug
-      }
+      params: { slug }
     }"
-    tag="div"
+    outlined
+    tile
   >
-    <article class="card">
-      <h1 class="card_title">{{ title }}</h1>
-      <p class="card_date">{{ date }}</p>
-    </article>
-  </nuxt-link>
+    <v-card-title>{{ title }}</v-card-title>
+    <v-card-subtitle>{{ date }}</v-card-subtitle>
+    <v-card-text>{{ description }}</v-card-text>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -22,11 +20,15 @@ export default defineComponent({
   props: {
     title: {
       type: String,
+      required: true
+    },
+    description: {
+      type: String,
       default: ''
     },
     date: {
       type: String,
-      default: ''
+      required: true
     },
     slug: {
       type: String,
