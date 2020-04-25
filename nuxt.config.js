@@ -19,8 +19,8 @@ module.exports = {
     htmlAttrs: {
       lang: 'ja'
     },
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - ' + 'Yune MK',
+    title: 'Yune MK',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -92,7 +92,13 @@ module.exports = {
      */
     extend(config, ctx) {}
   },
+  /*
+   ** Generate configuration
+   ** https://nuxtjs.org/api/configuration-generate
+   */
   generate: {
+    // If you want Nuxt.js to generate routes with dynamic params,
+    // you need to set the generate.routes property to an array of dynamic routes.
     routes() {
       return cdaClient
         .getEntries(contentfulEnv.CTF_BLOG_POST_TYPE_ID)

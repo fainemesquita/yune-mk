@@ -1,14 +1,10 @@
 <template>
   <v-app>
     <v-app-bar app hide-on-scroll>
-      <v-toolbar-title>Yune MK</v-toolbar-title>
+      <v-toolbar-title>
+        <nuxt-link to="/" tag="span">Yune MK</nuxt-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- <v-btn icon href="https://twitter.com/yune_mk" target="_blank" rel="noopener">
-        <v-icon>mdi-twitter</v-icon>
-      </v-btn>
-      <v-btn icon href="https://github.com/MK-Yune" target="_blank">
-        <v-icon>mdi-github</v-icon>
-      </v-btn>-->
       <v-btn
         v-for="(link, idx) in links"
         :key="idx"
@@ -34,6 +30,7 @@
 import { defineComponent, ref } from '@vue/composition-api'
 
 type Link = {
+  service: string
   href: string
   icon: string
 }

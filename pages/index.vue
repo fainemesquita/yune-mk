@@ -1,11 +1,11 @@
 <template>
-  <section class="index">
+  <section>
     <card
-      v-for="(post, i) in posts"
-      :id="post.sys.id"
-      :key="i"
+      v-for="post in posts"
+      :key="post.sys.slug"
       :title="post.fields.title"
       :date="post.sys.updatedAt"
+      :slug="post.fields.slug"
     />
   </section>
 </template>
@@ -16,13 +16,15 @@ import { createClient } from '~/plugins/contentful.js'
 
 const client = createClient()
 export default {
-  transition: 'slide-left',
   components: {
     Card
   },
-  asyncData({ env, params }) {
+  asyncData({ env }) {
     return client
-      .getEntries(env.CTF_BLOG_POST_TYPE_ID)
+      .getEntries({
+        content_type: env.CTF_BLOG_POST_TYPE_ID,
+        order: '-sys.updatedAt'
+      })
       .then((entries) => {
         return {
           posts: entries.items
