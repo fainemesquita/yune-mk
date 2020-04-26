@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app hide-on-scroll color="light-blue accent-1" flat>
-      <v-toolbar-title>
+    <v-app-bar app flat hide-on-scroll color="light-blue accent-2">
+      <v-toolbar-title class="ml-md-12">
         <nuxt-link to="/" tag="span">Yune MK</nuxt-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -13,6 +13,7 @@
         rel="noopener noreferrer"
         icon
         :aria-label="link.service"
+        class="mr-md-6"
       >
         <v-icon v-text="link.icon" />
       </v-btn>

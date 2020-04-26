@@ -1,12 +1,12 @@
 <template>
   <v-sheet
-    class="mx-2 mx-md-auto"
+    class="mx-2 mx-md-auto mt-md-2"
     :max-width="$vuetify.breakpoint.thresholds.xs + 100"
   >
     <v-sheet>
       <h2 class="mt-2 mb-0">{{ article.fields.title }}</h2>
       <div class="caption" v-text="datetime" />
-      <v-divider class="py-3"></v-divider>
+      <v-divider class="my-3"></v-divider>
     </v-sheet>
     <vue-markdown>{{ article.fields.body }}</vue-markdown>
   </v-sheet>
