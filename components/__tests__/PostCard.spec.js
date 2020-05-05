@@ -1,8 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import Vuetify from 'vuetify'
 import PostCard from '@/components/PostCard.vue'
 const localVue = createLocalVue()
-localVue.use(Vuetify)
 
 describe('PostCard', () => {
   let wrapper
@@ -23,8 +21,9 @@ describe('PostCard', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  test('should have props: title, date, slug', () => {
+  test('should have props: title, description, date, slug', () => {
     expect(wrapper.props('title')).toBeDefined()
+    expect(wrapper.props('description')).toBeDefined()
     expect(wrapper.props('date')).toBeDefined()
     expect(wrapper.props('slug')).toBeDefined()
   })

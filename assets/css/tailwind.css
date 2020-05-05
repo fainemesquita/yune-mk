@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.opacity-animation {
+  @apply transition-opacity duration-300 ease-in-out;
+}
+.opacity-animation:hover {
+  @apply opacity-50;
+}

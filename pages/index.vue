@@ -1,20 +1,21 @@
 <template>
-  <v-row no-gutters class="mt-md-2">
-    <v-col cols="12" md="9">
-      <v-sheet v-for="post in posts" :key="post.sys.slug" class="mx-md-12">
-        <Post-Card
-          :title="post.fields.title"
-          :description="post.fields.description"
-          :date="post.sys.updatedAt"
-          :slug="post.fields.slug"
-        />
-        <v-divider class="mx-3"></v-divider>
-      </v-sheet>
-    </v-col>
-    <v-col class="d-none d-md-flex side" md="3">
-      <v-sheet class="mx-auto mt-2">記事の数: {{ posts.length }}</v-sheet>
-    </v-col>
-  </v-row>
+  <div
+    class="grid md:grid-cols-3 col-gap-4 divide-x-4 p-2 md:mx-auto md:w-10/12"
+  >
+    <div class="md:col-span-2 divide-y">
+      <Post-Card
+        v-for="post in posts"
+        :key="post.sys.slug"
+        :title="post.fields.title"
+        :description="post.fields.description"
+        :date="post.sys.updatedAt"
+        :slug="post.fields.slug"
+      />
+    </div>
+    <div class="md:col-span-1 hidden md:flex">
+      <div class="mx-auto mt-2">記事の数: {{ posts.length }}</div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -41,9 +42,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.side {
-  border-left: 2px solid #dddd;
-}
-</style>
