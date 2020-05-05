@@ -4,11 +4,11 @@
       name: 'blog-slug',
       params: { slug }
     }"
-    tag="section"
+    class="block py-2 opacity-animation"
   >
-    <v-card-title class="font-weight-bold" v-text="title" />
-    <v-card-subtitle class="caption" v-text="localeDate" />
-    <v-card-text v-text="description" />
+    <h1 class="text-2xl font-medium" v-text="title" />
+    <div class="text-sm text-gray-800 font-light" v-text="localeDate" />
+    <p class="mt-1 font-light" v-text="description" />
   </router-link>
 </template>
 

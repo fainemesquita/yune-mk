@@ -1,28 +1,32 @@
 <template>
-  <v-app>
-    <v-app-bar app flat hide-on-scroll color="light-blue accent-2">
-      <v-toolbar-title class="ml-md-12">
-        <nuxt-link to="/" tag="span">Yune MK</nuxt-link>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        v-for="(link, idx) in links"
-        :key="idx"
-        :href="link.href"
-        target="_blank"
-        rel="noopener noreferrer"
-        icon
-        :aria-label="link.service"
-        class="mr-md-6"
-      >
-        <v-icon v-text="link.icon" />
-      </v-btn>
-    </v-app-bar>
+  <div>
+    <header class="sticky top-0 inset-x-0 z-50 bg-teal-400">
+      <div class="flex py-1 mx-2 sm:mx-auto md:w-9/12">
+        <div class="flex-grow opacity-animation">
+          <nuxt-link to="/" class="text-3xl font-medium">Yune MK</nuxt-link>
+        </div>
+        <a
+          v-for="(link, idx) in links"
+          :key="idx"
+          :href="link.href"
+          target="_blank"
+          rel="noopener noreferrer"
+          :aria-label="link.service"
+          class="flex-grow-0 mx-1 w-12"
+        >
+          <img
+            class="object-none object-center w-full opacity-animation"
+            :src="link.src"
+            :alt="link.service"
+          />
+        </a>
+      </div>
+    </header>
 
-    <v-content>
+    <main>
       <nuxt />
-    </v-content>
-  </v-app>
+    </main>
+  </div>
 </template>
 
 <script lang="ts">
@@ -31,7 +35,7 @@ import { defineComponent, ref } from '@vue/composition-api'
 type Link = {
   service: string
   href: string
-  icon: string
+  src: string
 }
 
 export default defineComponent({
@@ -40,12 +44,12 @@ export default defineComponent({
       {
         service: 'Twitter',
         href: 'https://twitter.com/yune_mk',
-        icon: 'mdi-twitter'
+        src: require('~/assets/icons/twitter.svg')
       },
       {
         service: 'GitHub',
         href: 'https://github.com/MK-Yune',
-        icon: 'mdi-github'
+        src: require('~/assets/icons/github.svg')
       }
     ])
 
