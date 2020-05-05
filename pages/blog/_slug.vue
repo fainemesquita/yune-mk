@@ -53,7 +53,7 @@ export default {
       meta: [
         {
           hid: 'description',
-          name: 'desctiption',
+          name: 'description',
           content: this.article.fields.description
         }
       ]
