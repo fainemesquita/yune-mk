@@ -8,7 +8,6 @@
     <vue-markdown
       class="markdown mt-4"
       :anchor-attributes="{ target: '_blank', rel: 'noopener noreferrer' }"
-      @rendered="() => (renderingMarkdown = false)"
       >{{ article.fields.body }}</vue-markdown
     >
   </div>
