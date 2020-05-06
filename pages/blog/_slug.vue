@@ -5,7 +5,12 @@
       <div class="text-small text-gray-800 font-light" v-text="datetime" />
       <hr class="mt-2" />
     </div>
-    <vue-markdown class="mt-4">{{ article.fields.body }}</vue-markdown>
+    <vue-markdown
+      class="markdown mt-4"
+      :anchor-attributes="{ target: '_blank', rel: 'noopener noreferrer' }"
+      @rendered="() => (renderingMarkdown = false)"
+      >{{ article.fields.body }}</vue-markdown
+    >
   </div>
 </template>
 
@@ -58,3 +63,77 @@ export default {
   }
 }
 </script>
+
+<style>
+.markdown {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.markdown h1 {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 2.25rem;
+}
+.markdown h2 {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.markdown h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.markdown h4 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.markdown h5 {
+  font-weight: bold;
+  font-weight: bold;
+}
+.markdown h6 {
+  font-weight: bold;
+  font-weight: lighter;
+}
+
+.markdown ul {
+  margin-top: 0.25rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+.markdown ol {
+  margin-top: 0.25rem;
+  padding-left: 1.5rem;
+  list-style-type: decimal;
+}
+
+.markdown blockquote {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 8px;
+  border-left: 4px solid gray;
+  background: #e7e7e7c7;
+}
+
+.markdown pre {
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  background: #ececec;
+}
+
+.markdown code {
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  padding: 0.05rem 0.2rem;
+  border-radius: 5px;
+  background: #ececec;
+  color: #333;
+}
+
+.markdown hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+</style>

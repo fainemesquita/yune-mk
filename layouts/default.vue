@@ -2,8 +2,10 @@
   <div>
     <header class="sticky top-0 inset-x-0 z-50 bg-teal-400">
       <div class="flex py-1 mx-2 sm:mx-auto md:w-9/12">
-        <div class="flex-grow opacity-animation">
-          <nuxt-link to="/" class="text-3xl font-medium">Yune MK</nuxt-link>
+        <div class="flex-grow">
+          <nuxt-link to="/" class="text-3xl font-medium opacity-animation">
+            Yune MK
+          </nuxt-link>
         </div>
         <a
           v-for="(link, idx) in links"
